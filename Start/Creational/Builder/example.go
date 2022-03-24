@@ -1,10 +1,21 @@
 package main
 
+import "fmt"
+
 func main() {
-	// TODO: Create a NotificationBuilder and use it to set properties
+	// Create a NotificationBuilder and use it to set properties
+	nb := newNotificationBuilder()
 
-	// TODO: Use the builder to set some properties
+	// Use the builder to set some properties
+	nb.SetImage("people running around a block")
+	nb.SetIcon("people_running")
+	nb.SetTitle("imageTitle.png")
 
-	// TODO: Use the Build function to create a finished object
-
+	// Use the Build function to create a finished object
+	obj, err := nb.Build()
+	if err != nil {
+		fmt.Println(fmt.Errorf("there was an error => %v", err))
+	} else {
+		fmt.Println("Final Object is \n", obj)
+	}
 }
