@@ -30,7 +30,7 @@ func (l *Library) IterateBooks(f func(Book) error) {
 	}
 }
 
-// TODO: createIterator returns a BookIterator that can access the book
+// createIterator returns a BookIterator that can access the book
 // collection on demand
 
 func (l *Library) createIterator() iterator {

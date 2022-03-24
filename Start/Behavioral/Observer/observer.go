@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Define the interface for an observer type
 type observer interface {
 	onUpdate(data string)
@@ -10,4 +12,9 @@ type DataListener struct {
 	Name string
 }
 
-// TODO: To conform to the interface, it must have an onUpdate function
+// To conform to the interface, it must have an onUpdate function
+
+func (dl *DataListener) onUpdate(data string) {
+	fmt.Println("Listener ", dl)
+	fmt.Println("got data change", data)
+}
