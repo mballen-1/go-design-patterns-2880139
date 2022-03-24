@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // BookType represents the type of book
 type BookType int
 
@@ -26,14 +24,21 @@ type Library struct {
 	Collection []Book
 }
 
-// TODO: IterateBooks calls the given callback function
-// for each book in the collection
 func (l *Library) IterateBooks(f func(Book) error) {
-	// TODO: implement IterateBooks
+	for _, book := range l.Collection {
+		f(book)
+	}
 }
 
 // TODO: createIterator returns a BookIterator that can access the book
 // collection on demand
+
+func (l *Library) createIterator() iterator {
+	return &BookIterator{
+		books:   l.Collection,
+		current: 0,
+	}
+}
 
 // -------------------
 // Create a Library structure to hold a set of Books

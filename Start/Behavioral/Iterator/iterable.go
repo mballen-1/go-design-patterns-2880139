@@ -13,16 +13,20 @@ type iterator interface {
 	next() *Book
 }
 
-// TODO: BookIterator is a concrete iterator for a Book collection
 type BookIterator struct {
+	books   []Book
+	current int
 }
 
 func (b *BookIterator) hasNext() bool {
-	// TODO: implement hasNext()
-	return false
+	return b.current <= len(b.books)-1
 }
 
 func (b *BookIterator) next() *Book {
-	// TODO: implement next()
+	if b.hasNext() {
+		old := b.books[b.current]
+		b.current++
+		return &old
+	}
 	return nil
 }
